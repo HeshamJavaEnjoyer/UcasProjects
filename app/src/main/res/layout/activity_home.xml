@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/snackBar_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/special_gray"
+    tools:context=".views.HomeActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideScreen_from_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideScreen_from_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideScreen_from_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideScreen_from_ends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <ImageView
+        android:id="@+id/imageViewGameLogo"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="50dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/app_logo_modified"
+        app:layout_constraintEnd_toStartOf="@id/guideScreen_from_ends"
+        app:layout_constraintStart_toEndOf="@id/guideScreen_from_start"
+        app:layout_constraintTop_toBottomOf="@id/guideScreen_from_top"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/guideScreen_from_ends"
+        app:layout_constraintStart_toEndOf="@id/guideScreen_from_start"
+        app:layout_constraintTop_toBottomOf="@id/imageViewGameLogo" />
+
+    <Button
+        android:id="@+id/btnHomeStartGame"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="110dp"
+        android:text="@string/start"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@id/guideScreen_from_ends"
+        app:layout_constraintStart_toEndOf="@id/guideScreen_from_start"
+        app:layout_constraintTop_toBottomOf="@id/imageViewGameLogo" />
+
+    <Button
+        android:id="@+id/btnHomeSettings"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/settings"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@id/guideScreen_from_ends"
+        app:layout_constraintStart_toEndOf="@id/guideScreen_from_start"
+        app:layout_constraintTop_toBottomOf="@id/btnHomeStartGame" />
+
+    <Button
+        android:id="@+id/btnHomeExit"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/exit"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/guideScreen_from_bottom"
+        app:layout_constraintEnd_toStartOf="@id/guideScreen_from_ends"
+        app:layout_constraintStart_toEndOf="@id/guideScreen_from_start"
+        app:layout_constraintTop_toBottomOf="@id/btnHomeSettings"
+        app:layout_constraintVertical_bias="0.00015" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        app:lottie_url="REPLACE_JSON_URL"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:layout_constraintTop_toBottomOf="@id/btnHomeExit"
+        app:layout_constraintBottom_toTopOf="@id/guideScreen_from_bottom"
+        app:layout_constraintEnd_toStartOf="@id/guideScreen_from_ends"
+        app:layout_constraintStart_toEndOf="@id/guideScreen_from_start"
+        app:lottie_rawRes="@raw/car_loading_animation"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

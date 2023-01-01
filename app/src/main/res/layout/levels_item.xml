@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:layout_margin="10dp"
+    android:background="@drawable/shape_level_item">
+
+    <TextView
+        android:id="@+id/textView_level_item"
+        android:layout_width="50dp"
+        android:layout_height="70dp"
+        android:hint="1"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/ratingBarLevel_evaluation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintStart_toEndOf="@+id/textView_level_minPoint"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textView_level_minPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="40"
+        android:textColor="@color/golden_yellow"
+        android:textSize="25sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_level_state"
+        app:layout_constraintStart_toEndOf="@+id/imageView_level_state"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/imageView_level_state"
+        android:layout_width="40dp"
+        android:layout_height="45dp"
+        android:src="@drawable/ic_locked"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+
+    <RatingBar
+        android:id="@+id/ratingBarLevel_evaluation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:isIndicator="true"
+
+        android:max="3"
+        android:numStars="3"
+        android:stepSize="0.5"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/level_evaluation_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="@string/score"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="5dp"
+        android:translationZ="15dp"
+        android:textColor="@color/golden_yellow"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/ratingBarLevel_evaluation"
+        app:layout_constraintEnd_toStartOf="@id/ratingBarLevel_evaluation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_level_state" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name = "app_name"> حل لي هذا اللغز </string>
+    <string name = "start"> ابدأ </string>
+    <string name = "settings"> الإعدادات </string>
+    <string name = "exit"> خروج </string>
+
+    <string name = "submit"> تأكيد الحل </string>
+    <string name = "type_your_answer_here"> اكتب إجابتك هنا </string>
+
+    <string name = "answer1"> الإجابة 1 </string>
+    <string name = "answer2"> الإجابة 2 </string>
+    <string name = "answer3"> الإجابة رقم 3 </string>
+    <string name = "answer4"> الإجابة الرابعة </string>
+
+    <string name = "false_"> خطأ </string>
+    <string name = "true_"> صحيح </string>
+    <string name = "title_activity_settings"> نشاط الإعدادات </string>
+
+
+    <string name = "music"> موسيقى </string>
+    <string name = "level"> المستوى: </string>
+    <string name = "score"> النتيجة: </string>
+
+    <string name = "great_job"> عمل رائع </string>
+
+    <string name = "wrong_answer"> إجابة خاطئة </string>
+
+    <string name = "okay"> حسنًا </string>
+
+    <string name = "skip_this_riddle"> تخطي هذا اللغز </string>
+
+    <string name = "notification"> الإعلام </string>
+
+    <string name = "background_music"> موسيقى الخلفية </string>
+
+    <string name = "daily_notification_reminder"> تذكير الإخطار اليومي </string>
+
+    <string name = "reset"> إعادة تعيين </string>
+    <string name = "user"> مستخدم </string>
+
+    <string name = "user_info"> بيانات المستخدم </string>
+
+    <string name = "user_inspector"> فاحص المستخدم </string>
+    <string name = "user_name"> اسم المستخدم </string>
+    <string name = "email"> البريد الإلكتروني </string>
+    <string name = "birth_date"> تاريخ الميلاد </string>
+    <string name = "gender"> الجنس </string>
+    <string name = "country"> البلد </string>
+
+    <string name = "are_you_sure_you_want_to_reset"> هل أنت متأكد أنك تريد إعادة التعيين </string>
+
+    <string name="time_out">نفذ الوقت</string>
+
+    <string name = "timer"> المؤقت </string>
+
+    <string name = "standing_on"> الوقوف عند </string>
+    <string name = "riddles_count"> عدد الألغاز </string>
+    <string name = "to_be_decided"> يتم تحديده </string>
+
+    <string name = "riddles_answered_count"> عدد الألغاز التي تم حلها </string>
+    <string name = "riddles_answered_right"> تمت الإجابة على الألغاز بشكل صحيح </string>
+    <string name = "riddles_answered_wrong"> تمت الإجابة على الألغاز بشكل خاطئ </string>
+    <string name = "level_solved_count"> عدد المراحل المحلولة </string>
+
+</resources>

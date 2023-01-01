@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fade_black"
+    tools:context=".views.SplashActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideScreen_from_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideScreen_from_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideScreen_from_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideScreen_from_ends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <ImageView
+        android:id="@+id/imageViewSplashLogo"
+        android:layout_width="190dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="220dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/app_logo"
+        app:layout_constraintEnd_toStartOf="@id/guideScreen_from_ends"
+        app:layout_constraintStart_toEndOf="@id/guideScreen_from_start"
+        app:layout_constraintTop_toBottomOf="@id/guideScreen_from_top"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textViewSplash_appName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:shadowColor="@color/black"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/guideScreen_from_ends"
+        app:layout_constraintStart_toEndOf="@id/guideScreen_from_start"
+        app:layout_constraintTop_toBottomOf="@id/imageViewSplashLogo" />
+
+    <ProgressBar
+        app:layout_goneMarginTop="10dp"
+        android:max="50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toStartOf="@id/guideScreen_from_ends"
+        app:layout_constraintStart_toEndOf="@id/guideScreen_from_start"
+        app:layout_constraintTop_toBottomOf="@id/textViewSplash_appName"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,422 @@
+[
+  {
+    "level_no": 1,
+    "unlock_points": 0,
+    "questions": [
+      {
+        "id": 1,
+        "title": "عدد أحرف اللغة الانجليزية 28 حرف",
+        "answer_1": "",
+        "answer_2": "",
+        "answer_3": "",
+        "answer_4": "",
+        "true_answer": "false",
+        "points": 1,
+        "duration": 10000,
+        "pattern": {
+          "pattern_id": 1,
+          "pattern_name": "True of False"
+        },
+        "hint": "عدد أحرف اللغة الانجليزية 26 حرف فقط"
+      },
+      {
+        "id": 2,
+        "title": "عاصمة أثيوبيا هي",
+        "answer_1": "أديس أبابا",
+        "answer_2": "جامايكا",
+        "answer_3": "كوالالمبور",
+        "answer_4": "دبلن",
+        "true_answer": "أديس أبابا",
+        "points": 2,
+        "duration": 30000,
+        "pattern": {
+          "pattern_id": 2,
+          "pattern_name": "Choose the correct answer"
+        },
+        "hint": "عاصمة أثيوبيا هي أديس أبابا"
+      },
+      {
+        "id": 3,
+        "title": "الكوكب الأحمر هو كوكب",
+        "answer_1": "",
+        "answer_2": "",
+        "answer_3": "",
+        "answer_4": "",
+        "true_answer": "المريخ",
+        "points": 5,
+        "duration": 60000,
+        "pattern": {
+          "pattern_id": 3,
+          "pattern_name": "Fill the answer"
+        },
+        "hint": "الكوكب الأحمر هو كوكب المريخ"
+      },
+      {
+        "id": 4,
+        "title": "عدد كواكب المجموعة الشمسية",
+        "answer_1": "10 كواكب",
+        "answer_2": "3 كواكب",
+        "answer_3": "8 كواكب",
+        "answer_4": "12 كوكب",
+        "true_answer": "8 كواكب",
+        "points": 2,
+        "duration": 30000,
+        "pattern": {
+          "pattern_id": 2,
+          "pattern_name": "Choose the correct answer"
+        },
+        "hint": "عدد كواكب المجموعة الشمسية هو 8 كواكب فقط"
+      }
+    ]
+  },
+  {
+    "level_no": 2,
+    "unlock_points": 6,
+    "questions": [
+      {
+        "id": 1,
+        "title": "شكل مجرة درب التبانة هو حلزوني",
+        "answer_1": "",
+        "answer_2": "",
+        "answer_3": "",
+        "answer_4": "",
+        "true_answer": "true",
+        "points": 1,
+        "duration": 10000,
+        "pattern": {
+          "pattern_id": 1,
+          "pattern_name": "True of False"
+        },
+        "hint": "شكل مجرة درب التبانة هو حلزوني"
+      },
+      {
+        "id": 2,
+        "title": "يسمى صغير الضفدع",
+        "answer_1": "دنغل",
+        "answer_2": "شرغوف",
+        "answer_3": "يرقة",
+        "answer_4": "كوالا",
+        "true_answer": "شرغوف",
+        "points": 2,
+        "duration": 30000,
+        "pattern": {
+          "pattern_id": 2,
+          "pattern_name": "Choose the correct answer"
+        },
+        "hint": "صغير الضفدع هو الشرغوف"
+      },
+      {
+        "id": 3,
+        "title": "تعتبر ال....... هي أسرع المخلوقات البحرية",
+        "answer_1": "",
+        "answer_2": "",
+        "answer_3": "",
+        "answer_4": "",
+        "true_answer": "التونة",
+        "points": 5,
+        "duration": 60000,
+        "pattern": {
+          "pattern_id": 3,
+          "pattern_name": "Fill the answer"
+        },
+        "hint": "التونة تعتبر اسرع المخلوقات البحرية، حيث يعتبر الحوت أكبرها"
+      }
+    ]
+  },
+  {
+    "level_no": 3,
+    "unlock_points": 15,
+    "questions": [
+      {
+        "id": 1,
+        "title": "مارك زوكربيرغ هو مؤسس شركة مايكروسوفت",
+        "answer_1": "",
+        "answer_2": "",
+        "answer_3": "",
+        "answer_4": "",
+        "true_answer": "false",
+        "points": 1,
+        "duration": 10000,
+        "pattern": {
+          "pattern_id": 1,
+          "pattern_name": "True of False"
+        },
+        "hint": "بيل غيست هو صاحب شركة مايكروسوفت"
+      },
+      {
+        "id": 2,
+        "title": "مكتشف الجاذبية الأرضية هو",
+        "answer_1": "تومس شلبي",
+        "answer_2": "ابن سينا",
+        "answer_3": "اسحاق نيوتين",
+        "answer_4": "تومس اديسون",
+        "true_answer": "اسحاق نيوتين",
+        "points": 2,
+        "duration": 30000,
+        "pattern": {
+          "pattern_id": 2,
+          "pattern_name": "Choose the correct answer"
+        },
+        "hint": "اسحاق نيوتين"
+      },
+      {
+        "id": 3,
+        "title": "من هو ممتلك شركة تيسلا",
+        "answer_1": "",
+        "answer_2": "",
+        "answer_3": "",
+        "answer_4": "",
+        "true_answer": "ايلون ماسك",
+        "points": 5,
+        "duration": 60000,
+        "pattern": {
+          "pattern_id": 3,
+          "pattern_name": "Fill the answer"
+        },
+        "hint": "ممتلك شركة تيسلا هو ايلون ماسك"
+      },
+      {
+        "id": 4,
+        "title": "الألوان الاساسية عددها",
+        "answer_1": "10 ألوان",
+        "answer_2": "3 ألوان",
+        "answer_3": "8 ألوان",
+        "answer_4": "12 ألوان",
+        "true_answer": "3 ألوان",
+        "points": 2,
+        "duration": 30000,
+        "pattern": {
+          "pattern_id": 2,
+          "pattern_name": "Choose the correct answer"
+        },
+        "hint": "عدد الألوان هو 3"
+      }
+    ]
+  },
+  {
+    "level_no": 4,
+    "unlock_points": 25,
+    "questions": [
+      {
+        "id": 1,
+        "title": " كم يبلغ العدد الكلّي للاعبين في مباريات كرة القدم (للفريقين)؟",
+        "answer_1": "22 لاعب",
+        "answer_2": "26 لاعب",
+        "answer_3": "23 لاعب",
+        "answer_4": "24 لاعب",
+        "true_answer": "22 لاعب",
+        "points": 2,
+        "duration": 30000,
+        "pattern": {
+          "pattern_id": 2,
+          "pattern_name": "Choose the correct answer"
+        },
+        "hint": "العدد الكلّي للاعبين هو 22"
+      },
+      {
+        "id": 2,
+        "title": "ما هو الطائر الاسرع في العالم؟",
+        "answer_1": "",
+        "answer_2": "",
+        "answer_3": "",
+        "answer_4": "",
+        "true_answer": "النعام",
+        "points": 5,
+        "duration": 60000,
+        "pattern": {
+          "pattern_id": 3,
+          "pattern_name": "Fill the answer"
+        },
+        "hint": "الطائر الاسرع في العالم هو النعام"
+      },
+      {
+        "id": 3,
+        "title": "عدد القلوب لدى حيوان الاخطبوط هو 3",
+        "answer_1": "",
+        "answer_2": "",
+        "answer_3": "",
+        "answer_4": "",
+        "true_answer": "true",
+        "points": 1,
+        "duration": 10000,
+        "pattern": {
+          "pattern_id": 1,
+          "pattern_name": "True of False"
+        },
+        "hint": " عدد القلوب لدى حيوان الاخطبوط هو 3 قلوب"
+      },
+      {
+        "id": 4,
+        "title": "في اي مدينة تقع ساعة بيج بين الشهيرة؟",
+        "answer_1": "",
+        "answer_2": "",
+        "answer_3": "",
+        "answer_4": "",
+        "true_answer": "لندن",
+        "points": 5,
+        "duration": 60000,
+        "pattern": {
+          "pattern_id": 3,
+          "pattern_name": "Fill the answer"
+        },
+        "hint": "توجد في مدينة لندن جنوب بريطانيا"
+      }
+    ]
+  },
+  {
+    "level_no": 5,
+    "unlock_points": 34,
+    "questions": [
+      {
+        "id": 1,
+        "title": "الذهب الاسود هو البترول ؟",
+        "answer_1": "",
+        "answer_2": "",
+        "answer_3": "",
+        "answer_4": "",
+        "true_answer": "true",
+        "points": 1,
+        "duration": 10000,
+        "pattern": {
+          "pattern_id": 1,
+          "pattern_name": "True of False"
+        },
+        "hint": "الذهب الاسود هو النفط او البترول"
+      },
+      {
+        "id": 2,
+        "title": "من هو الحيوان البحري الاكثر ذكاء؟",
+        "answer_1": "تمساح",
+        "answer_2": "الدولفين",
+        "answer_3": "القرش",
+        "answer_4": "الفقمه",
+        "true_answer": "الدولفين",
+        "points": 2,
+        "duration": 30000,
+        "pattern": {
+          "pattern_id": 2,
+          "pattern_name": "Choose the correct answer"
+        },
+        "hint": "الحيوان البحري الاكثر ذكاء هو الدولفين"
+      },
+      {
+        "id": 3,
+        "title": "حيوان مفترس إذا اصابه الجوع أكل صغاره فما اسم هذا الحيوان؟",
+        "answer_1": "",
+        "answer_2": "",
+        "answer_3": "",
+        "answer_4": "",
+        "true_answer": "النمر",
+        "points": 5,
+        "duration": 60000,
+        "pattern": {
+          "pattern_id": 3,
+          "pattern_name": "Fill the answer"
+        },
+        "hint": "النمر هو حيوان مفترس إذا اصابه الجوع أكل صغاره"
+      },
+      {
+        "id": 4,
+        "title": "تعتبر دولة....... اصفر الدول العربية مساحة",
+        "answer_1": "السودان",
+        "answer_2": "الهند",
+        "answer_3": "البحرين",
+        "answer_4": "الامارات",
+        "true_answer": "البحرين",
+        "points": 2,
+        "duration": 30000,
+        "pattern": {
+          "pattern_id": 2,
+          "pattern_name": "Choose the correct answer"
+        },
+        "hint": "البحرين هي اصغر الدول العربية مساحة"
+      }
+    ]
+  },
+  {
+    "level_no": 6,
+    "unlock_points": 44,
+    "questions": [
+      {
+        "id": 1,
+        "title": "من هو اول بلد شرع بالالعاب الاولمبيه؟",
+        "answer_1": "",
+        "answer_2": "",
+        "answer_3": "",
+        "answer_4": "",
+        "true_answer": "اليونان",
+        "points": 5,
+        "duration": 60000,
+        "pattern": {
+          "pattern_id": 3,
+          "pattern_name": "Fill the answer"
+        },
+        "hint": "اليونان هو اول بلد شرع بالالعاب الاولمبيه"
+      },
+      {
+        "id": 2,
+        "title": "من هو مكتشف أمريكا؟",
+        "answer_1": "ثيدور هرتزل",
+        "answer_2": "لوثر السادس",
+        "answer_3": "كريستفر كولمبوس",
+        "answer_4": "ابراهيم لينكن",
+        "true_answer": "كريستفر كولمبوس",
+        "points": 2,
+        "duration": 30000,
+        "pattern": {
+          "pattern_id": 2,
+          "pattern_name": "Choose the correct answer"
+        },
+        "hint": "كريستفر كولمبوس هو مكتشف امريكا"
+      },
+      {
+        "id": 3,
+        "title": "في اي مدينة يتواجد سوق عكاظ؟",
+        "answer_1": "",
+        "answer_2": "",
+        "answer_3": "",
+        "answer_4": "",
+        "true_answer": "الطائف",
+        "points": 5,
+        "duration": 60000,
+        "pattern": {
+          "pattern_id": 3,
+          "pattern_name": "Fill the answer"
+        },
+        "hint": "في مدينة الطائف"
+      },
+      {
+        "id": 4,
+        "title": "يتكون فريق كره السله من 5 لاعبين",
+        "answer_1": "",
+        "answer_2": "",
+        "answer_3": "",
+        "answer_4": "",
+        "true_answer": "true",
+        "points": 1,
+        "duration": 10000,
+        "pattern": {
+          "pattern_id": 1,
+          "pattern_name": "True of False"
+        },
+        "hint": "عدد الفريق 5 لاعبين"
+      },
+      {
+        "id": 5,
+        "title": "اللغة الرسمية في البرازيل هي البرتغالية",
+        "answer_1": "",
+        "answer_2": "",
+        "answer_3": "",
+        "answer_4": "",
+        "true_answer": "true",
+        "points": 1,
+        "duration": 10000,
+        "pattern": {
+          "pattern_id": 1,
+          "pattern_name": "True of False"
+        },
+        "hint": "يتحدث البرازيليون البرتغالية"
+      }
+    ]
+  }
+]

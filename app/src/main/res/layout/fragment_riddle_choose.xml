@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/riddle_background_2"
+    tools:context=".fragment.RiddleFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideScreen_from_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideScreen_from_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideScreen_from_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideScreen_from_ends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+
+    <TextView
+        android:id="@+id/textView_frag_Q"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/lightestDegree"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/radioGroupAnswers"
+        app:layout_constraintEnd_toStartOf="@id/guideScreen_from_ends"
+        app:layout_constraintStart_toEndOf="@id/guideScreen_from_start"
+        app:layout_constraintTop_toBottomOf="@id/guideScreen_from_top" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupAnswers"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/btn_frag_choose_submit"
+        app:layout_constraintEnd_toEndOf="@id/guideScreen_from_ends"
+        app:layout_constraintStart_toStartOf="@id/guideScreen_from_start"
+        app:layout_constraintTop_toBottomOf="@id/textView_frag_Q">
+
+        <RadioButton
+            android:id="@+id/radioButton_ans1"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+
+            android:background="@drawable/shape_radio_btn_selector_answer"
+
+            android:button="@android:drawable/btn_star"
+            android:buttonTintMode="multiply"
+            android:checked="false"
+            android:focusable="auto"
+            android:hint="@string/answer1"
+            android:includeFontPadding="false"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/shiny_red"
+            android:textColorHint="@color/shiny_red"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radioButton_ans2"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+
+            android:background="@drawable/shape_radio_btn_selector_answer"
+
+            android:button="@android:drawable/btn_star"
+            android:buttonTintMode="multiply"
+            android:checked="false"
+            android:focusable="auto"
+            android:hint="@string/answer2"
+            android:includeFontPadding="false"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/shiny_red"
+            android:textColorHint="@color/shiny_red"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radioButton_ans3"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+
+            android:background="@drawable/shape_radio_btn_selector_answer"
+            android:button="@android:drawable/btn_star"
+
+            android:buttonTintMode="multiply"
+            android:checked="false"
+            android:focusable="auto"
+            android:hint="@string/answer3"
+            android:includeFontPadding="false"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/shiny_red"
+            android:textColorHint="@color/shiny_red"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radioButton_ans4"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="15dp"
+
+            android:background="@drawable/shape_radio_btn_selector_answer"
+            android:button="@android:drawable/btn_star"
+
+            android:buttonTintMode="multiply"
+            android:checked="false"
+            android:focusable="auto"
+            android:hint="@string/answer4"
+            android:includeFontPadding="false"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/shiny_red"
+            android:textColorHint="@color/shiny_red"
+            android:textSize="27sp"
+            android:textStyle="bold" />
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/btn_frag_choose_submit"
+        android:layout_width="0dp"
+        android:layout_height="85dp"
+
+        android:backgroundTint="@color/sea_blue"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/submit"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@id/guideScreen_from_bottom"
+        app:layout_constraintEnd_toStartOf="@id/guideScreen_from_ends"
+
+        app:layout_constraintStart_toEndOf="@id/guideScreen_from_start"
+        app:layout_constraintTop_toBottomOf="@id/radioGroupAnswers" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

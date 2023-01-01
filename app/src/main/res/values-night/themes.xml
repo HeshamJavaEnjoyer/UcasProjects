@@ -1,0 +1,19 @@
+<resources >
+    <!-- Base application theme. -->
+    <style name="Theme.RiddleMeThis" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/sea_blue</item>
+        <item name="colorPrimaryVariant">@color/old_sky_blue</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/black</item>
+        <item name="colorOnSecondary">@color/fade_black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/sea_blue</item>
+        <!-- Customize your theme here. -->
+
+        <item name="fontFamily">@font/sans_ara_semi_bold</item>
+
+    </style>
+</resources>

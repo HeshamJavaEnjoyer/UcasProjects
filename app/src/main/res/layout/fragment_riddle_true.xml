@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/riddle_background_1"
+    tools:context=".fragment.RiddleFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideScreen_from_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideScreen_from_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideScreen_from_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideScreen_from_ends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <TextView
+        android:id="@+id/textView_frg_Q_true"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="255dp"
+        android:hint="@string/start"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/guideScreen_from_ends"
+        app:layout_constraintStart_toEndOf="@id/guideScreen_from_start"
+        app:layout_constraintTop_toBottomOf="@id/guideScreen_from_top"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/btn_frag_false"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+
+        android:backgroundTint="@color/shiny_red"
+
+        android:text="@string/false_"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toStartOf="@+id/guideScreen_from_ends"
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@id/textView_frg_Q_true"
+        tools:ignore="TextContrastCheck" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="20dp"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideScreen_from_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideScreen_from_start"
+        app:layout_constraintTop_toBottomOf="@+id/textView_frg_Q_true" />
+
+    <Button
+        android:id="@+id/btn_frag_true"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+
+        android:backgroundTint="#4CAF50"
+
+        android:text="@string/true_"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toStartOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/guideScreen_from_start"
+        app:layout_constraintTop_toBottomOf="@id/textView_frg_Q_true"
+        tools:ignore="TextContrastCheck" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

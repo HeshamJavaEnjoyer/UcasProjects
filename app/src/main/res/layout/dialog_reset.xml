@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/special_gray"
+    android:padding="5dp">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ui_vertical_start_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="15dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ui_vertical_end_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="15dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ui_horizontal_top_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="5dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ui_horizontal_bottom_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="5dp" />
+
+    <TextView
+        android:id="@+id/title_delete_forever"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/are_you_sure_you_want_to_reset"
+        android:textColor="@color/golden_yellow"
+        android:textSize="19sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/hint_delete_forever"
+        app:layout_constraintEnd_toStartOf="@id/ui_vertical_end_guide"
+        app:layout_constraintStart_toEndOf="@+id/ic_delete_forever"
+        app:layout_constraintTop_toBottomOf="@id/ui_horizontal_top_guide" />
+
+    <TextView
+        android:id="@+id/hint_delete_forever"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/btn_delete_forever"
+        app:layout_constraintEnd_toStartOf="@id/ui_vertical_end_guide"
+        app:layout_constraintStart_toEndOf="@+id/ic_delete_forever"
+        app:layout_constraintTop_toBottomOf="@id/title_delete_forever" />
+
+    <ImageView
+        android:id="@+id/ic_delete_forever"
+        android:layout_width="65dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/ui_horizontal_bottom_guide"
+        app:layout_constraintEnd_toStartOf="@id/hint_delete_forever"
+        app:layout_constraintStart_toStartOf="@+id/ui_vertical_start_guide"
+        app:layout_constraintTop_toTopOf="@+id/ui_horizontal_top_guide"
+        app:srcCompat="@drawable/ic_delete_forever"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
+
+    <Button
+        android:id="@+id/btn_delete_forever"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/shiny_red"
+        android:text="@string/submit"
+        app:layout_constraintBottom_toTopOf="@+id/ui_horizontal_bottom_guide"
+        app:layout_constraintEnd_toStartOf="@+id/ui_vertical_end_guide"
+        app:layout_constraintStart_toStartOf="@+id/ui_vertical_start_guide"
+        app:layout_constraintTop_toBottomOf="@id/hint_delete_forever" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

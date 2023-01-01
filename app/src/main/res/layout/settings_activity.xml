@@ -1,0 +1,327 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/special_gray"
+    tools:context=".views.SettingsActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideSetting_from_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideSetting_from_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideSetting_from_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideSetting_from_ends"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <!--music    -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/header_titleForMusic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/music"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/soundLinearLayout"
+        app:layout_constraintEnd_toEndOf="@id/guideSetting_from_ends"
+        app:layout_constraintStart_toStartOf="@id/guideSetting_from_start"
+        app:layout_constraintTop_toTopOf="@id/guideSetting_from_top" />
+
+    <LinearLayout
+        android:id="@+id/soundLinearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/guideSetting_from_ends"
+        app:layout_constraintStart_toStartOf="@id/guideSetting_from_start"
+        app:layout_constraintTop_toBottomOf="@id/header_titleForMusic">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/background_music"
+            android:textSize="15sp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/musicSwitch"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+    </LinearLayout>
+    <!--notification    -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/header_titleForNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/notification"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/notificationLinearLayout"
+        app:layout_constraintEnd_toEndOf="@id/guideSetting_from_ends"
+        app:layout_constraintStart_toStartOf="@id/guideSetting_from_start"
+        app:layout_constraintTop_toBottomOf="@id/soundLinearLayout" />
+
+    <LinearLayout
+        android:id="@+id/notificationLinearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/guideSetting_from_ends"
+        app:layout_constraintStart_toStartOf="@id/guideSetting_from_start"
+        app:layout_constraintTop_toBottomOf="@id/header_titleForNotification">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/daily_notification_reminder"
+            android:textSize="15sp" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/notificationSwitch"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true" />
+
+    </LinearLayout>
+
+    <!--Reset    -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/header_titleForResetUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/reset"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/reset_data_btn"
+        app:layout_constraintEnd_toEndOf="@id/guideSetting_from_ends"
+        app:layout_constraintStart_toStartOf="@id/guideSetting_from_start"
+        app:layout_constraintTop_toBottomOf="@id/notificationLinearLayout" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/reset_data_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/shiny_red"
+        android:text="@string/reset"
+        android:textColor="#CFD8DC"
+        app:layout_constraintEnd_toEndOf="@id/guideSetting_from_ends"
+        app:layout_constraintStart_toStartOf="@id/guideSetting_from_start"
+        app:layout_constraintTop_toBottomOf="@+id/header_titleForResetUser"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <!--Data    -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/header_titleForSetUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/user"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/set_data_btn"
+        app:layout_constraintEnd_toEndOf="@id/guideSetting_from_ends"
+        app:layout_constraintStart_toStartOf="@id/guideSetting_from_start"
+        app:layout_constraintTop_toBottomOf="@id/reset_data_btn" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/set_data_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/special_green"
+        android:text="@string/user_inspector"
+        android:textColor="#FFF3E0"
+        app:layout_constraintEnd_toEndOf="@id/guideSetting_from_ends"
+        app:layout_constraintStart_toStartOf="@id/guideSetting_from_start"
+        app:layout_constraintTop_toBottomOf="@+id/header_titleForSetUser" />
+    <!--DataFromRiddleProse-->
+
+    <!--ScoreTitle-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title_setting_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+
+        android:text="@string/score"
+        android:textColor="@color/golden_yellow"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@id/guideSetting_from_start"
+        app:layout_constraintTop_toBottomOf="@id/set_data_btn" />
+    <!--ScoreAct-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_setting_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/score"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@id/title_setting_score"
+        app:layout_constraintTop_toBottomOf="@id/set_data_btn" />
+    <!-- 0000000000000000====Second====000000000000000000000000000000000000000   -->
+    <!--userName-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title_setting_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+
+        android:text="@string/user_name"
+        android:textColor="@color/golden_yellow"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@id/guideSetting_from_start"
+        app:layout_constraintTop_toBottomOf="@id/title_setting_score" />
+    <!--NameAct-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_setting_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/to_be_decided"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/title_setting_username"
+        app:layout_constraintTop_toBottomOf="@id/tv_setting_score" />
+    <!--DIVIDER=====================================================-->
+
+    <View
+        android:background="@color/special_green"
+        app:layout_constraintTop_toBottomOf="@id/title_setting_username"
+        app:layout_constraintStart_toStartOf="@id/guideSetting_from_start"
+        app:layout_constraintEnd_toEndOf="@id/guideSetting_from_ends"
+        android:layout_width="0dp"
+        android:layout_height="1.5dp"/>
+
+    <!--TitleFor RiddlesAnsweredCount-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title_setting_RiddlesAnsweredCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+
+        android:text="@string/riddles_answered_count"
+        android:textColor="@color/golden_yellow"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/guideSetting_from_start"
+        app:layout_constraintTop_toBottomOf="@id/title_setting_username" />
+    <!--Act-RiddlesAnsweredCount-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_setting_RiddlesAnsweredCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/to_be_decided"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/title_setting_RiddlesAnsweredCount"
+        app:layout_constraintTop_toBottomOf="@id/tv_setting_username" />
+    <!-- DIVIDER -->
+    <!--TitleFor RiddlesAnsweredRight-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title_setting_RiddlesAnsRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+
+        android:text="@string/riddles_answered_right"
+        android:textColor="@color/golden_yellow"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/guideSetting_from_start"
+        app:layout_constraintTop_toBottomOf="@id/title_setting_RiddlesAnsweredCount" />
+    <!--Act-RiddlesAnsweredRight-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_setting_RiddlesAnsRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/to_be_decided"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/title_setting_RiddlesAnsRight"
+        app:layout_constraintTop_toBottomOf="@id/tv_setting_RiddlesAnsweredCount" />
+    <!-- DIVIDER -->
+    <!--TitleFor RiddlesAnsweredWrong-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title_setting_RiddlesAnsWrong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+
+        android:text="@string/riddles_answered_wrong"
+        android:textColor="@color/golden_yellow"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/guideSetting_from_start"
+        app:layout_constraintTop_toBottomOf="@id/title_setting_RiddlesAnsRight" />
+    <!--Act-RiddlesAnsweredWrong-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_setting_RiddlesAnsWrong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/to_be_decided"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/title_setting_RiddlesAnsWrong"
+        app:layout_constraintTop_toBottomOf="@id/tv_setting_RiddlesAnsRight" />
+   <!-- DIVIDER -->
+
+    <!--TitleFor l_solved_count-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title_setting_l_solved_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+
+        android:text="@string/level_solved_count"
+        android:textColor="@color/golden_yellow"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/guideSetting_from_start"
+        app:layout_constraintTop_toBottomOf="@id/title_setting_RiddlesAnsWrong" />
+    <!--Act-l_solved_count-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_setting_l_solved_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:hint="@string/to_be_decided"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/title_setting_l_solved_count"
+        app:layout_constraintTop_toBottomOf="@id/tv_setting_RiddlesAnsWrong" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/special_gray"
+    android:padding="15dp">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ui_vertical_start_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="25dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ui_vertical_end_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="25dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ui_horizontal_top_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="5dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/ui_horizontal_bottom_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="5dp" />
+
+    <TextView
+        android:id="@+id/title_riddle_solved_wrong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wrong_answer"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/hint_for_riddle_solved_wrong"
+        app:layout_constraintEnd_toStartOf="@id/ui_vertical_end_guide"
+        app:layout_constraintStart_toEndOf="@+id/ic_riddle_solved_wrong"
+        app:layout_constraintTop_toBottomOf="@id/ui_horizontal_top_guide" />
+
+    <TextView
+        android:id="@+id/hint_for_riddle_solved_wrong"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="#50B446"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_wrong_answer_okay"
+        app:layout_constraintEnd_toStartOf="@id/ui_vertical_end_guide"
+        app:layout_constraintStart_toEndOf="@+id/ic_riddle_solved_wrong"
+        app:layout_constraintTop_toBottomOf="@id/title_riddle_solved_wrong" />
+
+    <ImageView
+        android:id="@+id/ic_riddle_solved_wrong"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/ui_horizontal_bottom_guide"
+        app:layout_constraintEnd_toStartOf="@id/hint_for_riddle_solved_wrong"
+        app:layout_constraintStart_toStartOf="@+id/ui_vertical_start_guide"
+        app:layout_constraintTop_toTopOf="@+id/ui_horizontal_top_guide"
+        app:srcCompat="@drawable/ic_riddle_solved_wrong"
+        tools:ignore="ContentDescription,ImageContrastCheck" />
+
+    <Button
+        android:id="@+id/btn_wrong_answer_okay"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/sea_blue"
+        android:text="@string/okay"
+        app:layout_constraintBottom_toTopOf="@+id/ui_horizontal_bottom_guide"
+        app:layout_constraintEnd_toStartOf="@+id/ui_vertical_end_guide"
+        app:layout_constraintStart_toStartOf="@+id/hint_for_riddle_solved_wrong"
+        app:layout_constraintTop_toBottomOf="@id/hint_for_riddle_solved_wrong"
+        tools:ignore="TouchTargetSizeCheck" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
