@@ -3,14 +3,11 @@ package org.school.riddlemethis.views;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.school.riddlemethis.R;
 import org.school.riddlemethis.adapters.ViewPagerAdapter;
@@ -19,9 +16,13 @@ import org.school.riddlemethis.database.models.Riddles;
 import org.school.riddlemethis.fragment.dialogs.FinishedRiddlesDialog;
 import org.school.riddlemethis.fragment.dialogs.RiddleSkipDialog;
 import org.school.riddlemethis.fragment.dialogs.RiddleSuccessDialog;
+import org.school.riddlemethis.fragment.dialogs.RiddleTimeOutDialog;
 import org.school.riddlemethis.fragment.dialogs.RiddleWrongDialog;
 import org.school.riddlemethis.interfaces.AnswerCallback;
 import org.school.riddlemethis.interfaces.DialogListener;
+import org.school.riddlemethis.interfaces.DialogTimeOutCallback;
+import org.school.riddlemethis.interfaces.FragmentAskForSkipListener;
+import org.school.riddlemethis.interfaces.TimerListener;
 import org.school.riddlemethis.prefs.AppSharedPreferences;
 import org.school.riddlemethis.status.UserStatus;
 
@@ -29,18 +30,18 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 //DialogTimeOutCallback, TimerListener
-public class RiddleActivity extends AppCompatActivity implements AnswerCallback, DialogListener, View.OnClickListener {
+public class RiddleActivity extends AppCompatActivity implements AnswerCallback, DialogListener, TimerListener, DialogTimeOutCallback, FragmentAskForSkipListener {
     private static final String TAG = "RiddleActivity";
     private ViewPager2 viewPager2;
     private ViewPagerAdapter viewPagerAdapter;
     private TextView tv_currentLevel, tv_currentScore, tv_riddle_act_riddle_count, tv_standing_riddle;
 
     /*forget it    private CountDownTimer countDownTimer;
-    private boolean isDone;
+    private boolean isDone;*/
 
-    private TextView tv_timer_forRiddle;*/
+    private TextView tv_timer_forRiddle;
 
-    private FloatingActionButton btn_Skip_Riddle;
+    //    private FloatingActionButton btn_Skip_Riddle;
     private final ArrayList<Riddles> riddlesArrayList = new ArrayList<>();
     private RiddleViewModel viewModel;
     private int level_no;
@@ -57,6 +58,7 @@ public class RiddleActivity extends AppCompatActivity implements AnswerCallback,
     private int m_r_ans_right_count = userStatus.getR_ans_right_count();
     private int m_r_ans_wrong_count = userStatus.getR_ans_wrong_count();
     private int m_l_solved_count = userStatus.getL_solved_count();
+    private boolean isClicked = false;
     //TODO*********************************************************************************************
 
     @Override
@@ -101,7 +103,7 @@ public class RiddleActivity extends AppCompatActivity implements AnswerCallback,
         //**Standing
         tv_standing_riddle.setText(String.valueOf(viewPager2.getCurrentItem() + 1));
         //ClickListener
-        btn_Skip_Riddle.setOnClickListener(this);
+//        btn_Skip_Riddle.setOnClickListener(this);
     }
 
     private void findViews() {
@@ -112,9 +114,9 @@ public class RiddleActivity extends AppCompatActivity implements AnswerCallback,
 
         tv_riddle_act_riddle_count = findViewById(R.id.tv_riddle_act_riddle_count);
 
-        btn_Skip_Riddle = findViewById(R.id.skip_f_act_btn);
+//        btn_Skip_Riddle = findViewById(R.id.skip_f_act_btn);
 
-//        tv_timer_forRiddle = findViewById(R.id.tv_timer_forRiddle);
+        tv_timer_forRiddle = findViewById(R.id.tv_timer_forRiddle);
 
         tv_standing_riddle = findViewById(R.id.tv_standing_riddle);
     }
@@ -213,6 +215,7 @@ public class RiddleActivity extends AppCompatActivity implements AnswerCallback,
 
     @Override
     public void onClickForSkippedDialog() {
+        isClicked = true;
         Log.i(TAG, "onClick() returned: " + "Skipped and OkayDiaSkip Clicked");
         moveToNextPagerSkipped();
     }
@@ -229,7 +232,7 @@ public class RiddleActivity extends AppCompatActivity implements AnswerCallback,
             //---------USER Status
             m_riddles_answered_count++;
             //---------
-            viewPager2.setCurrentItem(new_currentViewItem_ + 1);
+            viewPager2.setCurrentItem(new_currentViewItem_ + 1, false);
             tv_standing_riddle.setText(String.valueOf(new_currentViewItem_ + 2));
 //            return false;
         }
@@ -258,14 +261,6 @@ public class RiddleActivity extends AppCompatActivity implements AnswerCallback,
     //such as the floating action btn
     private void showSkipDialog() {
         RiddleSkipDialog.newInstance("If you skip (-3) score !").show(getSupportFragmentManager(), "Skip this Riddle");
-    }
-
-    @Override
-    public void onClick(View view) {
-        if (view.getId() == R.id.skip_f_act_btn) {
-            //just show for dialog skip manger ... if user pressed okay code will run in @#onClickForSkippedDialog method
-            showSkipDialog();
-        }
     }
 
 
@@ -378,46 +373,33 @@ public class RiddleActivity extends AppCompatActivity implements AnswerCallback,
         viewModel.updateLevels_evaluation(level_no, (_finalValueFor_updateLevels_evaluation * 100));
     }
 
-    /*FORGET IT
     @Override
-    public void setTimerTickDuration(long duration_fromDatabase, int riddleId) {
-        Log.d(TAG, "setTimerTickDuration() interface=>: " + duration_fromDatabase);
-//        setTimerForEachRiddle(duration_fromDatabase,riddleIdInArray(riddleId));
-
+    public void setTimerTickDuration(long remainingTime) {
+        tv_timer_forRiddle.setTextColor(remainingTime <= 5 ? getResources().getColor(R.color.shiny_red) : getResources().getColor(R.color.white));
+        tv_timer_forRiddle.setText(String.valueOf(remainingTime / 1000));
     }
 
     @Override
-    public boolean onTimerFinished() {
-        return true;
+    public void onTimerFinished() {
+        RiddleTimeOutDialog.newInstance("Sorry But The Time is Over").show(getSupportFragmentManager(), "");
     }
 
- */
-    /*DONE    private void setTimerForEachRiddle(long duration,int riddleId) {
-        if (riddleId == riddleIdInArray(riddleId) && riddlesArrayList.get(riddleId).getRiddleTimeBySec() == duration){
-            Log.d(TAG, "setTimerForEachRiddle() method=>: " + duration);
-            countDownTimer = new CountDownTimer(duration, 1) {
-                @Override
-                public void onTick(long millisUntilFinished) {
-                    Log.d(TAG, "onTick() realTime=>: " + millisUntilFinished/1000);
-                    isDone = millisUntilFinished <= 0;
-                    int t_view = (int) millisUntilFinished;
-                    t_view--;
-                    tv_timer_forRiddle.setText(String.valueOf(t_view / 1000));
-                }
-                @Override
-                public void onFinish() {
-                    Toast.makeText(RiddleActivity.this, "OneTimerIsDone", Toast.LENGTH_SHORT).show();
-                    if (isDone) {
-                        Log.d(TAG, "onFinish() userSleeping: " + isDone);
-                        RiddleTimeOutDialog.newInstance("Sorry time is Up").show(getSupportFragmentManager(), "TimeIsUp");
-                    } else {
-                        Log.d(TAG, "onFinish() returned: UserWake" + isDone);
-                        cancel();
-                    }
-                }
-            }.start();
+    @Override
+    public void onClickForTimeOut() {
+        moveToNextPager();
+    }
 
+    @Override
+    public void onFloatingBtnSkipClicked() {
+        showSkipDialog();
+        if (isClicked) {
+            return;
         }
-}
-*/
+        setClicked(false);
+    }
+
+    public void setClicked(boolean clicked) {
+        isClicked = clicked;
+    }
+
 }

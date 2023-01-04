@@ -62,6 +62,7 @@ public class RiddleTimeOutDialog extends DialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setCancelable(false);
         if (getArguments() != null) {
             //test
             Bundle bundle = getArguments();
@@ -117,18 +118,4 @@ public class RiddleTimeOutDialog extends DialogFragment {
         ic_riddle_time_out.clearAnimation();
     }
 
-
-    @Override
-    public void onDismiss(@NonNull DialogInterface dialog) {
-        super.onDismiss(dialog);
-        //TODO PREVENT THE USER FROM Dismiss
-        //TODO PREVENT THE USER FROM Dismiss
-        //TODO PREVENT THE USER FROM Dismiss
-        //TODO PREVENT THE USER FROM Dismiss
-        //TODO PREVENT THE USER FROM Dismiss
-        //TODO PREVENT THE USER FROM Dismiss
-        //TODO PREVENT THE USER FROM Dismiss
-        //TODO PREVENT THE USER FROM Dismiss
-        //TODO PREVENT THE USER FROM Dismiss
-    }
 }

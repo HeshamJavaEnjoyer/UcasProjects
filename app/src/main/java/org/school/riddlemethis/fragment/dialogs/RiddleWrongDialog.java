@@ -60,6 +60,8 @@ public class RiddleWrongDialog extends DialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //For Preventing The User From Dismiss The Dialog
+        this.setCancelable(false);
         if (getArguments() != null) {
             //test
             Bundle bundle = getArguments();

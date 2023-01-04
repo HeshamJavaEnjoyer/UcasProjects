@@ -3,6 +3,7 @@ package org.school.riddlemethis.fragment;
 import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,18 +11,28 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import org.school.riddlemethis.R;
 import org.school.riddlemethis.enums.RiddleType;
 import org.school.riddlemethis.interfaces.AnswerCallback;
+import org.school.riddlemethis.interfaces.FragmentAskForSkipListener;
+import org.school.riddlemethis.interfaces.TimerListener;
+
 import java.util.Locale;
 import java.util.Objects;
 
 public class RiddleFragment extends Fragment {
     private MediaPlayer mediaPlayerSuccess, mediaPlayerFailed;
     private AnswerCallback answerCallback;
+    private TimerListener timerListener;
+    //SkippListener
+    private FragmentAskForSkipListener fragmentAskForSkipListener;
+
     private static final String ARG_RIDDLE_ID = "riddleId";
     //(Duration)
     private static final String ARG_RIDDLE_TimeBySec = "TimeBySec";
@@ -43,6 +54,11 @@ public class RiddleFragment extends Fragment {
     //complete
     String theRightAnswer;
 
+    //timer
+    int riddleTimeBySec;
+
+    private CountDownTimer countDownTimer;
+
     public RiddleFragment() {
         // Required empty public constructor
     }
@@ -57,6 +73,9 @@ public class RiddleFragment extends Fragment {
 
         try {
             answerCallback = (AnswerCallback) context;
+            timerListener = (TimerListener) context;
+
+            fragmentAskForSkipListener = (FragmentAskForSkipListener) context;
 
         } catch (ClassCastException e) {
             throw new ClassCastException(context + " must implement AnswerCallback ");
@@ -147,7 +166,7 @@ public class RiddleFragment extends Fragment {
 
             //****************************************************************************
 
-
+            riddleTimeBySec = getArguments().getInt(ARG_RIDDLE_TimeBySec,10);
 
             //****************************************************************************
 
@@ -155,10 +174,13 @@ public class RiddleFragment extends Fragment {
     }
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        createATimerForRiddle(riddleTimeBySec);
         //Global Var
+        FloatingActionButton floatingActionButtonSkipp;
         TextView textViewQ;
         RadioButton radioButton_ans1, radioButton_ans2, radioButton_ans3, radioButton_ans4;
         Button btnTrue, btnFalse, btnSubmit;
+
         //*********************[Start InflatingViews]******************************================
         //inflate RiddleType.TrueOrFalse
         if (riddleType == RiddleType.TrueOrFalse.riddleTypeNum) {
@@ -166,19 +188,31 @@ public class RiddleFragment extends Fragment {
 
 
             // Inflate the layout for this fragment
+            floatingActionButtonSkipp = viewTrue.findViewById(R.id.skip_f_act_btn_trueOrFalse);
+
             textViewQ = viewTrue.findViewById(R.id.textView_frg_Q_true);
 
             btnTrue = viewTrue.findViewById(R.id.btn_frag_true);
             btnFalse = viewTrue.findViewById(R.id.btn_frag_false);
 
+            floatingActionButtonSkipp.setOnClickListener(view -> {
+                countDownTimer.cancel();
+                fragmentAskForSkipListener.onFloatingBtnSkipClicked();
+//2                if (fragmentAskForSkipListener.onFloatingBtnSkipClicked()){
+//                    Toast.makeText(AppController.getInstance(), "TimerGotA_isClickedTrueOkaySkipDialogWork", Toast.LENGTH_SHORT).show();
+//                    floatingActionButtonSkipp.setVisibility(View.GONE);
+//                }
+            });
 
             btnTrue.setOnClickListener(view -> {
                 if (isTheQuestionTrue) {
                     //Toast.makeText(getActivity(), "You Are Right", Toast.LENGTH_SHORT).show();
+                    countDownTimer.cancel();
                     answerCallback.onSuccess(riddleId);
                     mediaPlayerSuccess.start();
                 } else {
                     //Toast.makeText(getActivity(), "You Are wrong", Toast.LENGTH_SHORT).show();
+                    countDownTimer.cancel();
                     answerCallback.onFailed(riddleId);
                     mediaPlayerFailed.start();
                 }
@@ -187,14 +221,14 @@ public class RiddleFragment extends Fragment {
             btnFalse.setOnClickListener(view -> {
                 if (!isTheQuestionTrue) {
                     //Toast.makeText(getActivity(), "You Are Right", Toast.LENGTH_SHORT).show();
+                    countDownTimer.cancel();
                     answerCallback.onSuccess(riddleId);
                     mediaPlayerSuccess.start();
-
                 } else {
                     //Toast.makeText(getActivity(), "You Are wrong", Toast.LENGTH_SHORT).show();
+                    countDownTimer.cancel();
                     answerCallback.onFailed(riddleId);
                     mediaPlayerFailed.start();
-
                 }
             });
 
@@ -206,12 +240,23 @@ public class RiddleFragment extends Fragment {
         else if (riddleType == RiddleType.ChooseTheCorrectAnswer.riddleTypeNum) {
             View viewChooses = inflater.inflate(R.layout.fragment_riddle_choose, container, false);
             // Inflate the layout for this fragment
+            floatingActionButtonSkipp = viewChooses.findViewById(R.id.skip_f_act_btn_choose);
+
             textViewQ = viewChooses.findViewById(R.id.textView_frag_Q);
             radioButton_ans1 = viewChooses.findViewById(R.id.radioButton_ans1);
             radioButton_ans2 = viewChooses.findViewById(R.id.radioButton_ans2);
             radioButton_ans3 = viewChooses.findViewById(R.id.radioButton_ans3);
             radioButton_ans4 = viewChooses.findViewById(R.id.radioButton_ans4);
             // radioGroupAnswers= viewChooses.findViewById(R.id.radioGroupAnswers);
+            floatingActionButtonSkipp.setOnClickListener(view -> {
+                countDownTimer.cancel();
+                fragmentAskForSkipListener.onFloatingBtnSkipClicked();
+//2                if (fragmentAskForSkipListener.onFloatingBtnSkipClicked()){
+//                    Toast.makeText(AppController.getInstance(), "TimerGotA_isClickedTrueOkaySkipDialogWork", Toast.LENGTH_SHORT).show();
+//
+//                    floatingActionButtonSkipp.setVisibility(View.GONE);
+//                }
+            });
 
             btnSubmit = viewChooses.findViewById(R.id.btn_frag_choose_submit);
 
@@ -224,6 +269,7 @@ public class RiddleFragment extends Fragment {
 
             //userAnswer fromTV
             btnSubmit.setOnClickListener(view -> {
+                countDownTimer.cancel();
                 String userAnswer = null;
                 if (radioButton_ans1.isChecked())
                     userAnswer = radioButton_ans1.getText().toString();
@@ -262,12 +308,25 @@ public class RiddleFragment extends Fragment {
         }
         //inflate RiddleType.CompleteTheSentence
         else if (riddleType == RiddleType.CompleteTheSentence.riddleTypeNum) {
+
             View viewComplete = inflater.inflate(R.layout.fragment_riddle_complete, container, false);
             // Inflate the layout for this fragment
+            floatingActionButtonSkipp = viewComplete.findViewById(R.id.skip_f_act_btn_complete);
+
             EditText ed_Input = viewComplete.findViewById(R.id.ed_frag_input);
 
             textViewQ = viewComplete.findViewById(R.id.textView_frg_Q_complete);
             btnSubmit = viewComplete.findViewById(R.id.btn_frag_complete_submit);
+
+            floatingActionButtonSkipp.setOnClickListener(view -> {
+                countDownTimer.cancel();
+                fragmentAskForSkipListener.onFloatingBtnSkipClicked();
+//2                if (fragmentAskForSkipListener.onFloatingBtnSkipClicked()){
+//                    Toast.makeText(AppController.getInstance(), "TimerGotA_isClickedTrueOkaySkipDialogWork", Toast.LENGTH_SHORT).show();
+//
+//                    floatingActionButtonSkipp.setVisibility(View.GONE);
+//                }
+            });
 
             btnSubmit.setOnClickListener(view -> {
                 String userAnswer = ed_Input.getText().toString().trim().toLowerCase(Locale.ROOT);
@@ -275,9 +334,11 @@ public class RiddleFragment extends Fragment {
                     if (userAnswer.equals(theRightAnswer)) {
                         answerCallback.onSuccess(riddleId);
                         mediaPlayerSuccess.start();
+                        countDownTimer.cancel();
                     } else {
                         answerCallback.onFailed(riddleId);
                         mediaPlayerFailed.start();
+                        countDownTimer.cancel();
                     }
                 } else {
                     Snackbar.make(viewComplete.findViewById(R.id.guideScreen_from_bottom), "Enter An Answer", Snackbar.LENGTH_LONG).show();
@@ -306,6 +367,20 @@ public class RiddleFragment extends Fragment {
             mediaPlayerSuccess = null;
             mediaPlayerFailed = null;
         }
+    }
+
+    private void createATimerForRiddle(int riddleTimeBySec){
+        countDownTimer = new CountDownTimer(riddleTimeBySec,1) {
+            @Override
+            public void onTick(long remain) {
+                timerListener.setTimerTickDuration(remain);
+            }
+
+            @Override
+            public void onFinish() {
+                timerListener.onTimerFinished();
+            }
+        }.start();
     }
 
 }
