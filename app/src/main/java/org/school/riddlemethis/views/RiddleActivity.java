@@ -375,13 +375,13 @@ public class RiddleActivity extends AppCompatActivity implements AnswerCallback,
 
     @Override
     public void setTimerTickDuration(long remainingTime) {
-        tv_timer_forRiddle.setTextColor(remainingTime <= 5 ? getResources().getColor(R.color.shiny_red) : getResources().getColor(R.color.white));
+        tv_timer_forRiddle.setTextColor(remainingTime <= 6200 ? getResources().getColor(R.color.shiny_red) : getResources().getColor(R.color.white));
         tv_timer_forRiddle.setText(String.valueOf(remainingTime / 1000));
     }
 
     @Override
     public void onTimerFinished() {
-        RiddleTimeOutDialog.newInstance("Sorry But The Time is Over").show(getSupportFragmentManager(), "");
+        RiddleTimeOutDialog.newInstance("Sorry But The Time is Over").show(getSupportFragmentManager(), "TimeOut");
     }
 
     @Override

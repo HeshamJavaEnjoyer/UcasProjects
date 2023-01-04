@@ -357,6 +357,7 @@ public class RiddleFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         destroyMediaPlayer();
+        destroyTimerObject();
     }
     private void destroyMediaPlayer() {
         if (mediaPlayerSuccess != null && mediaPlayerFailed != null) {
@@ -367,6 +368,10 @@ public class RiddleFragment extends Fragment {
             mediaPlayerSuccess = null;
             mediaPlayerFailed = null;
         }
+    }
+    private void destroyTimerObject(){
+        countDownTimer.cancel();
+        countDownTimer = null;
     }
 
     private void createATimerForRiddle(int riddleTimeBySec){

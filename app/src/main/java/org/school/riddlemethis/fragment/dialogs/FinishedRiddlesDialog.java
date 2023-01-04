@@ -20,6 +20,7 @@ public class FinishedRiddlesDialog extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        this.setCancelable(false);
         new Handler().postDelayed(this::dismiss,2950);
         return inflater.inflate(R.layout.dialog_finished_riddles, container, false);
     }
