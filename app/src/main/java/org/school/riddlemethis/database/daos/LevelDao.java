@@ -33,6 +33,8 @@ public interface LevelDao {
     void updateLevels_evaluationToDelete(double newLevel_evaluation);
 
 
+    @Query("UPDATE Levels SET level_statusOpen =:isOpen WHERE level_num=:level_num")
+    void updateLevels_statusOpen(boolean isOpen,int level_num);
 
 
     //not for use

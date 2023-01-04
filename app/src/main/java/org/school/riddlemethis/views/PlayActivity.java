@@ -4,6 +4,7 @@ import static org.school.riddlemethis.views.RiddleActivity.score_general;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,18 +40,19 @@ public class PlayActivity extends AppCompatActivity implements ProcessCallback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
+        viewModel = new ViewModelProvider(this).get(RiddleViewModel.class);
     }
 
 
     @Override
     protected void onStart() {
         super.onStart();
-        viewModel = new ViewModelProvider(this).get(RiddleViewModel.class);
-        initializer();
-        //********
+        findViews();
         levelsAdapter = new LevelsAdapter(levelsArrayList, this);
         recyclerView.setAdapter(levelsAdapter);
-        initializeRecyclerAdapter();
+        initializer();
+        //********
+
     }
 
     @Override
@@ -59,7 +61,7 @@ public class PlayActivity extends AppCompatActivity implements ProcessCallback {
     }
 
     private void initializer() {
-        findViews();
+
         sharedScoreValue = AppSharedPreferences.getInstance(this).getScore();
 
         if (sharedScoreValue < score_general) {
@@ -67,6 +69,9 @@ public class PlayActivity extends AppCompatActivity implements ProcessCallback {
         }
 
         tv_play_act_currentScore.setText(String.valueOf(sharedScoreValue));
+
+        initializeRecyclerAdapter();
+
 
     }
 
@@ -78,29 +83,27 @@ public class PlayActivity extends AppCompatActivity implements ProcessCallback {
 
     private void initializeRecyclerAdapter() {
         //TODO GET THE REAL SCORE
-        int tempScore = sharedScoreValue;
+//        int tempScore = sharedScoreValue;
 
         viewModel.getAllLevels().observe(this, levels -> {
+            Log.i("PlayActivity", "initializeRecyclerAdapter: observeHasRun");
             levelsArrayList.addAll(levels);
 
             for (int i = 0; i < levelsArrayList.size(); i++) {
-
-                if (levelsArrayList.get(i).getMinPointToUnlock() <= tempScore) {
-                    levelsArrayList.get(i).setLevel_statusOpen(true);
-
-                }
-
+                Log.i("PlayActivity", "inSide ForLoop: ScoreWorkingOn=>"+sharedScoreValue);
+                levelsArrayList.get(i).setLevel_statusOpen(levelsArrayList.get(i).getMinPointToUnlock() <= sharedScoreValue);
+                Log.i("inSide", "changingValuesOfLevels: crackedOpen:"+levelsArrayList.get(i).getLevel_num()+"=>"+levelsArrayList.get(i).isLevel_statusOpen());
             }
             //1 check this if multiply UPDATE WORKS PERFECTLY
             if (!levelsArrayList.isEmpty()){
+                Log.i("PlayActivity", "initializeRecyclerAdapter: isNotEmpty");
                 levelsArrayList.clear();
                 levelsAdapter.setLevelsArrayList((ArrayList<Levels>) levels);
+                Log.i("PlayActivity", "initializeRecyclerAdapter: AdapterHasTakenAValue");
             }
 //                levelsAdapter.setLevelsArrayList((ArrayList<Levels>) levels);
-
-    });
-}
-
+        });
+    }
 
 
     //Dos-not work-------UPDATE NOW IT DOSE

@@ -69,6 +69,10 @@ public class RiddleViewModel extends AndroidViewModel {
         repository.updateLevels_evaluationToDelete(newLevel_evaluation);
     }
 
+    public void updateLevels_statusOpen(boolean isOpen,int level_num){
+        repository.updateLevels_statusOpen(isOpen, level_num);
+    }
+
 
 
     //not for use

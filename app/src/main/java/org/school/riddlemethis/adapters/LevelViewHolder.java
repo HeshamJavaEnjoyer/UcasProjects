@@ -52,13 +52,8 @@ public class LevelViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void checkLevelEvaluation(float realLevel_evaluation){
-        if (realLevel_evaluation == 100) {
-            ratingBarLevel_evaluation.setRating(3);
-        } else if (realLevel_evaluation >= 50) {
-            ratingBarLevel_evaluation.setRating(2.5F);
-        } else if (realLevel_evaluation < 50 && realLevel_evaluation != 0) {
-            ratingBarLevel_evaluation.setRating(1);
-        }
+        float value_forRatingbar = (realLevel_evaluation * 3)/100;
+        ratingBarLevel_evaluation.setRating(value_forRatingbar);
     }
 
 }

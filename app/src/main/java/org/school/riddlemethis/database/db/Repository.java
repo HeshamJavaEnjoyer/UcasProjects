@@ -103,6 +103,15 @@ public class Repository {
         });
     }
 
+    public void updateLevels_statusOpen(boolean isOpen,int level_num){
+        RiddleDatabase.databaseWriteExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                levelDao.updateLevels_statusOpen(isOpen,level_num);
+            }
+        });
+    }
+
 
 
 

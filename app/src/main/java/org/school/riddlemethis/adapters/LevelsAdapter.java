@@ -38,18 +38,12 @@ public class LevelsAdapter extends RecyclerView.Adapter<LevelViewHolder> {
         holder.setBindData(levels);
 
         //for clicking on any item
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (levels.isLevel_statusOpen())
-                    view.setBackgroundResource(R.drawable.shape_level_item_clicked);
-
-               // Toast.makeText(view.getContext(), "Opened ? > "+levels.isLevel_statusOpen(), Toast.LENGTH_SHORT).show();
-
-                callback.onItemClicked(levels.getLevel_num(),levels.isLevel_statusOpen());
-
+        holder.itemView.setOnClickListener(view -> {
+            if (levels.isLevel_statusOpen()){
+                view.setBackgroundResource(R.drawable.shape_level_item_clicked);
             }
+            // Toast.makeText(view.getContext(), "Opened ? > "+levels.isLevel_statusOpen(), Toast.LENGTH_SHORT).show();
+            callback.onItemClicked(levels.getLevel_num(),levels.isLevel_statusOpen());
         });
 
 
@@ -65,8 +59,8 @@ public class LevelsAdapter extends RecyclerView.Adapter<LevelViewHolder> {
 
     public void setLevelsArrayList(ArrayList<Levels> levelsArrayList) {
         this.levelsArrayList = levelsArrayList;
-        notifyDataSetChanged();
-//        notifyItemChanged(0,levelsArrayList.size());
+        notifyItemRangeChanged(0,levelsArrayList.size());
+        //        notifyItemChanged(0,levelsArrayList.size());
     }
     //===================
 }
