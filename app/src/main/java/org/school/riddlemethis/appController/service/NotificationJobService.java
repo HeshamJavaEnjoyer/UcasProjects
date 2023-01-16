@@ -20,11 +20,13 @@ public class NotificationJobService extends JobService {
     public boolean onStartJob(JobParameters jobParameters) {
         Log.i(TAG, "onStartJob JOB-STARTED");
         Log.i(TAG, "onStartJob: Notification Is On Now");
-        displayNotification();
+//        displayNotification();
+        //i shouldn't typed line 23 cuz the ( if statement ) RUNS whats in it of Methods that returns
         if (displayNotification()){
             jobFinished(jobParameters,true);
         }
-        return true;
+        return false;
+        // i shouldn't but True unless i write a code big and need Thread to run ... so >if so i tell the system {return true} ..which means i have a running code don't end the service on your mind //As you know Thread has a deferring time in compilation so might be destroyed before it do her preps
     }
 
     @Override

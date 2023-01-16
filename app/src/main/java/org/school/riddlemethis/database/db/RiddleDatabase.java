@@ -50,7 +50,6 @@ public abstract class RiddleDatabase extends RoomDatabase {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
-
             new Thread(() -> Utils.getInstance().readRiddles()).start();
         }
     };
