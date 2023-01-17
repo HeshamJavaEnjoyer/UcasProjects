@@ -75,7 +75,6 @@ public class RiddleTimeOutDialog extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        okay_btn_listener = (DialogTimeOutCallback) getContext();
         // for inflating and finds ids
         View view = findViews(inflater, container);
         //setting the hint into the dialog % the hint came from the newInstance from this Class
